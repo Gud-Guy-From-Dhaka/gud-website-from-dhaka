@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Chaos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/webp" href="bd aes.webp">
+</head>
+<body>
+    <header class="navbar">
+<div class="logo">
+    <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Logo" class="nav-logo">
+        <span class="logo-text">Gud Developer From Dhaka</span>
+    </a>
+</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="/auth/index.html">Bot Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="split-container">
+        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px;">
+            <div class="centered-item">
+                <h3>Project 1: Cursed Calculator</h3>
+                <p>It only gives wrong answers.</p>
+            </div>
+            <div class="centered-item">
+                <h3>Project 2: Potato Optimizer</h3>
+                <p>Makes your fast PC run like mine.</p>
+            </div>
+            <div class="centered-item">
+                <h3>Project 3: Granny 6</h3>
+                <p>Tried to make it with raylib library of C++.
+                    I got stuck on loading model :[
+                    I am gonna try it again someday.
+                    My pc cant support Unity or Unreal Engine, so I was tryinng to make it with C++ and raylib.
+                </p>
+            </div>
+            <div class="centered-item">
+                <h3>Project 4: Gud Bot From Dhaka</h3>
+                <p>My first Discord bot. It's not very good but it's mine.
+                    It can do some basic commands and has a cool ping command that shows the latency.
+                    I am planning to add more features to it in the future, but for now it's just a fun project to learn how to make a bot.
+                </p>
+            </div>
+        </div>
+    </main>
+    <script>
+    // Check if the URL has a "code" from Discord
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    if (code) {
+        // Change the page content to show they logged in
+        const container = document.querySelector('.split-container');
+        container.innerHTML = `
+            <div class="centered-item">
+                <h1>Welcome, Legend!</h1>
+                <p>Discord authorized you. (Code: ${code.substring(0, 8)}...)</p>
+                <p>Now you can "pretend" to change bot settings.</p>
+                <button onclick="window.location.href='projects.html'" style="margin-top:20px; padding:10px; cursor:pointer;">Clear Login State</button>
+            </div>
+        `;
+        
+        // Clean up the URL so it looks professional
+        window.history.replaceState({}, document.title, "/" + "projects.html");
+    }
+</script>
+</body>
+</html>

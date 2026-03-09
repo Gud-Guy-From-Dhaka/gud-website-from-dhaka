@@ -1,0 +1,183 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Fixed the gradient syntax and made it a nice deep blue-to-purple vibe */
+    background: linear-gradient(to bottom, #ff66ff, #009999);
+    min-height: 100vh;
+    font-family: sans-serif;
+    color: white;
+}
+
+/* 1. The Fixed Top Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px; /* Reduced padding slightly for better fit */
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px); /* Makes the glass look premium */
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+/* 2. Main Layout */
+.split-container {
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column; /* This stacks the bio and QR vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;      /* Increased height so there's a "void" to scroll into */
+    gap: 50px;              /* Space between the bio and the QR code */
+}
+
+.floating-qr {
+    position: relative;     /* No longer stuck to the screen */
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 10px;
+    
+    /* Your signature 100deg rotation */
+    animation: qrRotate 4s linear infinite;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    min-height: 500px;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+/* ... Keep your previous Reset and Body styles ... */
+
+.centered-item {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Removed animation from here so people can actually read it */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff00cc; /* Glow effect */
+    text-shadow: 0 0 10px #ff00cc;
+}
+/* ... Keep everything the same until the end ... */
+
+@keyframes qrRotate {
+    0% { transform: rotateZ(0deg); }
+    50% { transform: rotateZ(180deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+/* Make sure the abyss actually exists */
+/* Final combined split-container for the Abyss effect */
+.split-container {
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column; /* Keeps items stacked vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 150vh;      /* Creates the deep scrollable void */
+    gap: 50px;              /* Space between bio and QR */
+    padding-bottom: 100px;  /* Extra room at the very bottom */
+}
+/* Container for both image and text */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 10px; /* Space between image and text */
+}
+
+.nav-logo {
+    height: 40px; /* Keep it small so it doesn't stretch the bar */
+    width: auto;
+    flex-shrink: 0; /* Prevents the image from getting squished */
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    white-space: nowrap; /* Prevents text from breaking into two lines */
+}
+
+/* THE FIX FOR MOBILE/SMALL SCREENS */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 0.9rem; /* Shrinks text so it fits */
+    }
+    
+    .navbar {
+        padding: 10px 20px; /* Reduces side padding to give more room */
+    }
+
+    .nav-links {
+        gap: 15px; /* Tightens the menu links */
+    }
+}
+
+/* IF THE TEXT STILL OVERFLOWS ON TINY SCREENS */
+@media (max-width: 480px) {
+    .logo-text {
+        display: none; /* Only shows the image logo on very small phones */
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Vertical center */
+    gap: 12px;           /* Perfect spacing */
+    font-weight: bold;
+}
+
+.nav-links a.active {
+    color: #ff1a1a;
+    border-bottom: 2px solid #ff1a1a;
+    padding-bottom: 5px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.logo a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 15px rgba(255, 26, 26, 0.8);
+    transform: scale(1.02);
+}
